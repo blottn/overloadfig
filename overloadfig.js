@@ -1,27 +1,24 @@
-// Example overloadfig
-const example = {
-    "action": {
-        "string": (val) => {
-            console.log("hi");
-        },
-        "number": (val) => {
-            console.log("number: " + val);
-        },
-        "object": {
-            "http": (val) => {
-                console.log("making a http get!" 
-            },
-        },
-    }
+function isObjectOfTypes(o) {
+    return Object.keys(o)
+        .filter(x => !["string", "number", "object"].includes(x)).length == 0;
 }
 
 function loadConfig(def, cfg) {
-    if (typeof def === "function") { // base case
+    if (typeof def === "function") {
         return def(cfg);
     }
-    if (typeof def === "object") { // we have some cases to test
-        if (!(typeof cfg in def)) {
-            throw `unhandled type ${cfg} in ${JSON.stringify(def)}`;
-        }
+    if (!isObjectOfTypes(def)) {
+        let out = {};
+        Object.keys(cfg).map(key => {
+            if (key in def) { // TODO add strict mode
+                out[key] = loadConfig(def[key], cfg[key]);
+            }
+        });
+        return out;
+    }
+    else {
+        return loadConfig(def[typeof cfg], cfg);
     }
 }
+
+export default loadConfig
