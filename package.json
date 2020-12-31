@@ -1,6 +1,6 @@
 {
   "name": "overloadfig",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "overloadable config values. Simplifies writing defaults for configs",
   "main": "overloadfig.js",
   "scripts": {
