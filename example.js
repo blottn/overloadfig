@@ -12,7 +12,7 @@ const exampleSpec = {
         "object": {
             "http": (val) => {
                 console.log("making a http get! (not really obviously)" );
-                return "abc";
+                return "abc"; // Could return the actual value here
             },
         },
     },
@@ -31,6 +31,11 @@ loadConfig(exampleSpec, {
         "name": "root"
     }
 });
+// Outputs ->
+//     hello to new overloadfig user!
+//     hello root!
+
+
 
 // Return values
 // Also all keys are optional, best effort approach with minimal erroring
@@ -39,3 +44,7 @@ console.log(loadConfig(exampleSpec, {
         "http": "asdf"
     },
 }));
+// Outputs ->
+//     making a http get! (not really obviously)
+//     { action: { http: 'abc' } }
+
