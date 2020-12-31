@@ -1,0 +1,23 @@
+{
+  "name": "overloadfig",
+  "version": "0.0.1",
+  "description": "overloadable config values. Simplifies writing defaults for configs",
+  "main": "overloadfig.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/blottn/overloadfig.git"
+  },
+  "keywords": [
+    "overloadable",
+    "config"
+  ],
+  "author": "blottn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blottn/overloadfig/issues"
+  },
+  "homepage": "https://github.com/blottn/overloadfig#readme"
+}
